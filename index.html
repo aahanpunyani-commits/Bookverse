@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bookverse</title>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial;
+    margin: 0;
+    text-align: center;
+    background-image: url('Book-Background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+h1 {
+    background-color: wheat;
+    border: 2px solid wheat;
+    border-radius: 12px;
+    font-family: courier new;
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
+}
+.books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+.book img {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+.book img:hover { transform: scale(1.08); }
+#tagline {
+    font-size: 20px;
+    font-family: courier new;
+    color: black;
+    margin-top: 20px;
+}
+.poll {
+    margin: 50px auto;
+    background: wheat;
+    color: black;
+    border-radius: 12px;
+    padding: 20px;
+    width: 500px;
+    font-family: courier new;
+}
+.poll button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.poll button:hover { background: darkred; }
+</style>
+</head>
+<body>
+
+<h1>Bookverse</h1>
+
+<div class="books">
+    <div class="book"><a href="wrath.html"><img src="Wrath Of The Triple Goddess book cover.png"></a></div>
+    <div class="book"><a href="magnus.html"><img src="Magnus Chase - 1 book cover.png"></a></div>
+    <div class="book"><a href="percy.html"><img src="Percy Jackson-The Complete Collection book cover.png"></a></div>
+    <div class="book"><a href="harry.html"><img src="HarryPotter.png"></a></div>
+    <div class="book"><a href="psychology.html"><img src="psychology1.png"></a></div>
+    <div class="book"><a href="savage.html"><img src="savage1.png"></a></div>
+</div>
+
+<audio autoplay loop>
+  <source src="trillium-hardtekk.mp3" type="audio/mpeg">
+</audio>
+
+<p id="tagline">Bookverse is your ultimate reading hub, packed with stories that pull you in instantly.
+Discover, explore, and get lost in worlds that never let go.</p>
+
+<!-- Poll Section -->
+<div class="poll">
+  <h3>Poll: Which shaped your childhood more?</h3>
+  <button onclick="vote('Percy Jackson')">Percy Jackson</button>
+  <button onclick="vote('Harry Potter')">Harry Potter</button>
+  <p id="pollResults">Percy Jackson: 0 | Harry Potter: 0</p>
+</div>
+
+<script>
+let votes = { "Percy Jackson": 0, "Harry Potter": 0 };
+function vote(choice) {
+    votes[choice]++;
+    document.getElementById("pollResults").innerText =
+        "Percy Jackson: " + votes["Percy Jackson"] +
+        " | Harry Potter: " + votes["Harry Potter"];
+}
+</script>
+
+<footer style="text-align:center; color:black; font-family:courier new; border:2px solid black; border-radius:12px; background-color:wheat; width: 500px; margin: 40px auto; padding:10px;">
+<p>Made By–Aahan Punyani</p>
+</footer>
+
+</body>
+</html>

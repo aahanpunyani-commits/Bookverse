@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Harry Potter: The Complete Collection</title>
+<style>
+body { 
+    background-color:#111; 
+    color:white; 
+    font-family:Arial, sans-serif; 
+    text-align:center; 
+    margin:0; 
+    padding:20px;
+}
+h1 { 
+    font-size:40px; 
+    margin-top:20px; 
+}
+.book-cover { 
+    width:300px; 
+    border-radius:12px; 
+    box-shadow:0 0 25px rgba(255,255,255,0.4); 
+    margin-bottom:20px;
+}
+
+/* Input fields */
+input, textarea {
+    width:80%;
+    padding:12px;
+    margin-top:15px;
+    border-radius:12px; /* more rounded */
+    border:2px solid #444;
+    background:#222;
+    color:white;
+    font-size:16px;
+    outline:none;
+    transition: border 0.3s ease;
+}
+input:focus, textarea:focus {
+    border:2px solid wheat;
+}
+
+/* Buttons */
+button {
+    margin-top:15px;
+    padding:15px 25px; /* bigger */
+    border:none;
+    background:wheat;
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:8px; /* squarer */
+    cursor:pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+    background:#f5d76e;
+    transform: scale(1.05);
+}
+
+/* Reviews */
+#reviews { 
+    margin-top:20px; 
+    text-align:left; 
+    width:80%; 
+    margin:auto; 
+    background:rgba(255,255,255,0.1); 
+    padding:15px; 
+    border-radius:10px; 
+}
+</style>
+</head>
+<body>
+
+<h1>Harry Potter: The Complete Collection</h1>
+<img src="HarryPotter.png" class="book-cover">
+
+<p><strong>Author:</strong> J.K. Rowling</p>
+<p><strong>Description:</strong> A collection of all seven Harry Potter books.</p>
+
+<input type="password" id="codeInput" placeholder="Enter code">
+<br>
+<button onclick="checkCode()">Read Book</button>
+
+<!-- Review Section -->
+<div class="review-section">
+    <h3>Leave a Review</h3>
+    <textarea id="reviewText" placeholder="Write your review..."></textarea>
+    <button onclick="submitReview()">Submit Review</button>
+</div>
+<div id="reviews"></div>
+
+<!-- Back button -->
+<div style="margin-top:30px;">
+    <button onclick="window.location.href='index.html'">⬅ Back to Bookverse</button>
+</div>
+
+<script>
+const correctCode = "booklover123";
+function checkCode() {
+    let code = document.getElementById("codeInput").value;
+    if (code === correctCode) {
+        window.open("Harry Potter- Complete Collection.pdf", "_blank");
+    } else {
+        alert("Wrong code!");
+    }
+}
+function submitReview() {
+    let text = document.getElementById("reviewText").value;
+    if (text.trim() !== "") {
+        let reviewBox = document.createElement("p");
+        reviewBox.innerText = "⭐ " + text;
+        document.getElementById("reviews").appendChild(reviewBox);
+        document.getElementById("reviewText").value = "";
+    }
+}
+</script>
+
+</body>
+</html>
